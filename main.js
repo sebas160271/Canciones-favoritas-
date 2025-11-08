@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { id: 'kJQP7kiw5Fk', title: 'Despacito', artist: 'Luis Fonsi', genre: 'urbano', year: '2017' },
     { id: 'RgKAFK5djSk', title: 'See You Again', artist: 'Wiz Khalifa', genre: 'pop', year: '2015' },
     { id: 'Zi_XLOBDo_Y', title: 'Billie Jean', artist: 'Michael Jackson', genre: 'pop', year: '1982' },
-    { id: 'tUVVQ4Y7qvE', title: 'Sample EDM', artist: 'Producer', genre: 'electrónica', year: '2020' }
+    { https://youtu.be/AzT7HIrKMZU?si=6j7KIXj47_gTaE_J }
   ];
 
   // Referencias DOM
