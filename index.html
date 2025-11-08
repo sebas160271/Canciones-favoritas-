@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mi Playlist — Página Musical</title>
+  <!-- Vincula el CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Fondo animado y contenedor principal -->
+  <div class="background"></div>
+
+  <header class="topbar">
+    <!-- Logo SVG pequeño (puedes reemplazarlo más abajo si quieres otro) -->
+    <div class="logo" aria-hidden="true">
+      <!-- Icono musical simple en SVG -->
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 17a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM20 3v10.5A3.5 3.5 0 0 1 16.5 17 3.5 3.5 0 0 1 13 13.5V6l7-3z" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <!-- Título principal -->
+    <h1 class="site-title">Sebastián — Mis Canciones</h1>
+
+    <!-- Controles de filtro por género/Artista -->
+    <nav class="filters" aria-label="Filtra por género o artista">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="pop">Pop</button>
+      <button class="filter-btn" data-filter="rock">Rock</button>
+      <button class="filter-btn" data-filter="electrónica">Electrónica</button>
+      <button class="filter-btn" data-filter="urbano">Urbano</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Reproductor principal (iframe) -->
+    <section class="player" aria-label="Reproductor principal">
+      <div class="player-card">
+        <!-- Aquí se carga el video seleccionado -->
+        <iframe id="mainPlayer"
+                src="https://www.youtube.com/embed/JGwWNGJdvx8?rel=0"
+                title="Reproductor principal"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        <div class="player-info">
+          <h2 id="playerTitle">Ed Sheeran — Shape of You</h2>
+          <p id="playerMeta">Pop · 2017</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galería de videos: thumbnails clicables -->
+    <section class="gallery" aria-label="Galería de canciones">
+      <!-- Lista generada por JavaScript -->
+      <div id="videoGrid" class="grid"></div>
+    </section>
+
+    <!-- Playlist lateral (opcional) -->
+    <aside class="playlist" aria-label="Lista de reproducción">
+      <h3>Lista rápida</h3>
+      <ul id="quickList"></ul>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Sebastián — Página personal de música</p>
+  </footer>
+
+  <!-- Vincula el JavaScript -->
+  <script src="main.js"></script>
+</body>
+</html>
