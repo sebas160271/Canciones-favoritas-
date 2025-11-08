@@ -1,0 +1,183 @@
+/* styles.css
+   Diseño moderno, juvenil y responsivo.
+   Comentarios en línea explican cada bloque. */
+
+/* Reset ligero */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html,body { height: 100%; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color: #eef2ff; }
+
+/* Fondo animado: gradiente con movimiento sutil */
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: linear-gradient(120deg, #0f172a 0%, #0b1220 30%, #1f2937 60%);
+  overflow: hidden;
+}
+
+/* Capas de "neón" flotante (suaves) */
+.background::after,
+.background::before {
+  content: "";
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  left: -10%;
+  top: -10%;
+  background: radial-gradient(circle at 20% 20%, rgba(99,102,241,0.10), transparent 15%),
+              radial-gradient(circle at 80% 80%, rgba(236,72,153,0.08), transparent 18%);
+  animation: floaty 18s ease-in-out infinite;
+  z-index: -1;
+}
+@keyframes floaty {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.02); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* Topbar con logo y filtros */
+.topbar {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 18px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: calc(100% - 40px);
+}
+.logo { color: #7c3aed; display:flex; align-items:center; justify-content:center; }
+.site-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: #e6eef8;
+  margin-right: auto;
+}
+
+/* Filtros (botones) */
+.filters { display: flex; gap: 8px; }
+.filter-btn {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 8px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  color: #dbeafe;
+  font-size: 0.9rem;
+  transition: all .18s ease;
+}
+.filter-btn:hover { transform: translateY(-3px); }
+.filter-btn.active {
+  background: linear-gradient(90deg, rgba(124,58,237,0.18), rgba(236,72,153,0.12));
+  box-shadow: 0 6px 24px rgba(124,58,237,0.08);
+  border-color: rgba(124,58,237,0.45);
+}
+
+/* Estructura principal: player + gallery + playlist */
+.container {
+  max-width: 1200px;
+  margin: 28px auto;
+  padding: 0 20px 40px;
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 20px;
+}
+
+/* Player ocupa 2 columnas en pantallas pequeñas */
+.player {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+/* Tarjeta del reproductor principal */
+.player-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.04);
+  width: 100%;
+  max-width: 780px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+}
+
+/* iframe responsivo */
+.player-card iframe {
+  width: 100%;
+  height: 420px;
+  display: block;
+  border: none;
+  background: #000;
+}
+
+/* Información del video debajo del iframe */
+.player-info {
+  padding: 14px 16px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+}
+.player-info h2 { font-size: 1.05rem; margin-bottom: 6px; color: #f8fafc; }
+.player-info p { font-size: 0.9rem; color: #c7d2fe; opacity: 0.9; }
+
+/* Grid de la galería */
+.grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+}
+
+/* Cada tarjeta de video */
+.video-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.03);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.video-card:hover { transform: translateY(-6px); box-shadow: 0 10px 30px rgba(2,6,23,0.5); }
+.video-thumb {
+  width: 100%;
+  display: block;
+}
+.video-meta {
+  padding: 8px 10px;
+}
+.video-title { font-size: 0.92rem; color: #e6eef8; margin-bottom: 4px; }
+.video-sub { font-size: 0.8rem; color: #a5b4fc; opacity: 0.9; }
+
+/* Playlist lateral */
+.playlist {
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+  border-radius: 10px;
+  padding: 12px;
+  border: 1px solid rgba(255,255,255,0.03);
+  max-height: 560px;
+  overflow: auto;
+}
+.playlist h3 { color: #e6eef8; margin-bottom: 8px; font-size: 1rem; }
+.playlist ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.playlist li { font-size: 0.95rem; color: #c7d2fe; cursor: pointer; padding: 6px; border-radius: 6px; transition: background .12s; }
+.playlist li:hover { background: rgba(255,255,255,0.02); }
+
+/* Footer */
+.footer {
+  max-width: 1200px;
+  margin: 20px auto 60px;
+  padding: 0 20px;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+/* Responsive: en pantallas grandes el grid se ajusta */
+@media(min-width: 1024px){
+  .container { grid-template-columns: 1fr 360px; }
+  .player { grid-column: 1 / 2; }
+  .gallery { grid-column: 1 / 2; }
+  .playlist { grid-column: 2 / 3; }
+}
+@media(max-width: 900px){
+  .container { grid-template-columns: 1fr; }
+  .player-card iframe { height: 320px; }
+  .filters { display: none; } /* opcional: ocultar filtros en pantallas muy pequeñas */
+  }
